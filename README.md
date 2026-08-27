@@ -3,7 +3,8 @@
 [![Build Status](https://github.com/prasadus92/face-recognition/actions/workflows/build.yml/badge.svg)](https://github.com/prasadus92/face-recognition/actions/workflows/build.yml)
 
 ## Author
-**Prasad Subrahmanya**  
+**Aman J.r**
+
 [GitHub Profile](https://github.com/prasadus92)
 
 A Java-based face recognition system that uses eigenfaces for face recognition under various conditions including expressions, occlusions, and pose variations.

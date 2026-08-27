@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/prasadus92/face-recognition/actions/workflows/build.yml/badge.svg)](https://github.com/prasadus92/face-recognition/actions/workflows/build.yml)
 
 ## Author
-**Aman J.r**
+**Krisshhhhh**
 
 [GitHub Profile](https://github.com/prasadus92)
 

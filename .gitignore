@@ -1,0 +1,31 @@
+# Maven Target
+target/
+*.class
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.project
+*.classpath
+*.settings/
+.classpath
+.project
+.settings/
+
+# Local libraries downloaded by setup script
+lib/
+
+# Platform-specific binaries
+*.dll
+*.so
+*.dylib
+platform-specific/windows/*.dll
+
+# OS generated files
+.DS_Store
+Thumbs.db

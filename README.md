@@ -63,10 +63,19 @@ A Java-based face recognition system that uses eigenfaces for face recognition u
 
 ## Running the Application
 
-Run the application directly; no login or test credentials are required:
+Run the desktop application directly; no login or test credentials are required:
    ```bash
-   mvn exec:java -Dexec.mainClass="src.FrontEnd"
+   java -cp target/face-recognition-1.0-SNAPSHOT-jar-with-dependencies.jar src.FrontEnd
    ```
+
+## Render Deployment
+
+The repository includes `render.yaml` and `Dockerfile` for a Render Web Service.
+The web service exposes `/health` and a browser interface at `/`; upload an image to
+`/api/recognize` for processing with the existing face-recognition engine. The original
+Swing desktop interface remains available through the VS Code Run configuration.
+The current application has no database-backed feature, so no MySQL credentials are
+required or stored in Render.
 
 ## Platform-Specific Setup
 

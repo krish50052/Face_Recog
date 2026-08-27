@@ -63,7 +63,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>src.Main</mainClass>
+                            <mainClass>src.FrontEnd</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -67,6 +67,13 @@ Run the application directly; no login or test credentials are required:
    mvn exec:java -Dexec.mainClass="src.FrontEnd"
    ```
 
+## Render Deployment
+
+The repository includes `render.yaml` and `Dockerfile` for a Render background worker.
+Because this is a Swing desktop application, Render can run the process with Xvfb but
+cannot display the graphical interface in a browser. Use the VS Code Run configuration
+for interactive face-recognition sessions.
+
 ## Platform-Specific Setup
 
 ### Windows

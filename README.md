@@ -28,13 +28,11 @@ A Java-based face recognition system that uses eigenfaces for face recognition u
 - Implements Two-Stage Classification and Detection (TSCD)
 - Supports 3D face visualization
 - Uses Java 3D for 3D rendering
-- MySQL database for user management
 
 ## Prerequisites
 
 - Java Development Kit (JDK) 25
 - Maven 3.9 or higher
-- MySQL 5.7 or higher
 - Java 3D API
 
 ## Building the Project
@@ -50,19 +48,7 @@ A Java-based face recognition system that uses eigenfaces for face recognition u
    - Install it on your system
    - Add the Java 3D libraries to your system's Java library path
 
-3. Set up MySQL:
-   ```sql
-   CREATE DATABASE face_recognition;
-   USE face_recognition;
-   CREATE TABLE users (
-       UserName VARCHAR(30),
-       Email VARCHAR(50),
-       Phone VARCHAR(10),
-       Password VARCHAR(20)
-   );
-   ```
-
-4. Install JAI libraries:
+3. Install JAI libraries:
    - Download JAI libraries from Oracle's website
    - Place the following files in the `lib` directory:
      - `jai_core.jar`
@@ -76,11 +62,9 @@ A Java-based face recognition system that uses eigenfaces for face recognition u
 
 ## Running the Application
 
-1. Start MySQL server
-
-2. Run the application:
+Run the application directly; no login or test credentials are required:
    ```bash
-   mvn exec:java -Dexec.mainClass="src.Main"
+   mvn exec:java -Dexec.mainClass="src.FrontEnd"
    ```
 
 ## Platform-Specific Setup

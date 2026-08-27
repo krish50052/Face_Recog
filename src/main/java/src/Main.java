@@ -240,8 +240,13 @@ public class Main extends JApplet implements ActionListener {
      * @throws IOException if the logo image file cannot be read
      */
     private void addLogoToPanel(JPanel panel) throws IOException {
-        String imPath = System.getProperty("user.dir").replace('\\', '/');
-        BufferedImage myPicture = ImageIO.read(new File(imPath + "/src/src/face.png"));
+        BufferedImage myPicture;
+        try (java.io.InputStream imageStream = Main.class.getResourceAsStream("/face.png")) {
+            if (imageStream == null) {
+                throw new IOException("Logo image not found: /face.png");
+            }
+            myPicture = ImageIO.read(imageStream);
+        }
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
         panel.add(picLabel);
     }

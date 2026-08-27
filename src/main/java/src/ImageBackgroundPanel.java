@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * A JPanel that displays a background image.
@@ -17,7 +18,7 @@ import java.io.*;
  */
 public class ImageBackgroundPanel extends JPanel {
     private static final long serialVersionUID = 1L;
-    private static final String BACKGROUND_IMAGE_PATH = "/src/src/bkd.png";
+    private static final String BACKGROUND_IMAGE_PATH = "/bkd.png";
     
     private BufferedImage backgroundImage;
 
@@ -34,9 +35,12 @@ public class ImageBackgroundPanel extends JPanel {
      * If the image cannot be loaded, a blank panel will be displayed.
      */
     private void loadBackgroundImage() {
-        try {
-            String imagePath = System.getProperty("user.dir").replace('\\', '/') + BACKGROUND_IMAGE_PATH;
-            backgroundImage = ImageIO.read(new File(imagePath));
+        try (InputStream imageStream = ImageBackgroundPanel.class.getResourceAsStream(BACKGROUND_IMAGE_PATH)) {
+            if (imageStream == null) {
+                System.err.println("Background image not found: " + BACKGROUND_IMAGE_PATH);
+                return;
+            }
+            backgroundImage = ImageIO.read(imageStream);
         } catch (IOException e) {
             System.err.println("Failed to load background image: " + e.getMessage());
         }

@@ -63,7 +63,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>src.FrontEnd</mainClass>
+                            <mainClass>src.WebServer</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

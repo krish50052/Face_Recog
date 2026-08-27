@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Recognition</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; }
+    body { margin: 0; min-height: 100vh; background: #edf2f7; color: #17212b; }
+    main { width: min(720px, calc(100% - 32px)); margin: 8vh auto; }
+    section { background: white; padding: 32px; border: 1px solid #d8e0e8; border-radius: 12px; box-shadow: 0 10px 30px #17212b12; }
+    h1 { margin-top: 0; }
+    form { display: grid; gap: 16px; }
+    input, button { font: inherit; padding: 12px; border-radius: 8px; }
+    input { border: 1px solid #aebdca; }
+    button { border: 0; background: #1769aa; color: white; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: wait; }
+    #result { margin-top: 20px; padding: 14px; background: #f2f6f9; border-radius: 8px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <h1>Face Recognition</h1>
+      <p>Upload an image to process it with the existing face-recognition engine.</p>
+      <form id="recognize-form">
+        <input id="image" type="file" accept="image/*" required>
+        <button id="submit" type="submit">Process image</button>
+      </form>
+      <div id="result" hidden></div>
+    </section>
+  </main>
+  <script>
+    const form = document.querySelector('#recognize-form');
+    const image = document.querySelector('#image');
+    const submit = document.querySelector('#submit');
+    const result = document.querySelector('#result');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const file = image.files[0];
+      if (!file) return;
+      submit.disabled = true;
+      result.hidden = false;
+      result.textContent = 'Processing...';
+      try {
+        const response = await fetch('/api/recognize', { method: 'POST', headers: { 'Content-Type': file.type }, body: file });
+        const data = await response.json();
+        result.textContent = response.ok ? JSON.stringify(data, null, 2) : data.error;
+      } catch (error) {
+        result.textContent = 'The server could not process the image.';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

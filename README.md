@@ -32,8 +32,8 @@ A Java-based face recognition system that uses eigenfaces for face recognition u
 
 ## Prerequisites
 
-- Java Development Kit (JDK) 8 or higher
-- Maven 3.6 or higher
+- Java Development Kit (JDK) 25
+- Maven 3.9 or higher
 - MySQL 5.7 or higher
 - Java 3D API
 
